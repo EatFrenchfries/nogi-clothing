@@ -9,7 +9,7 @@ const Home = () => {
     },
     {
       id: 2,
-      title: 'Hoodie',
+      title: 'Hoodies',
       imageUrl: '//d1rypb7ac4155m.cloudfront.net/res/nogizaka46/w0Gp-8-2021-03-29-09-05-00/6061983c7279b'
     },
     {
@@ -19,7 +19,7 @@ const Home = () => {
     },
     {
       id: 4,
-      title: 'Muffler Towel',
+      title: 'Muffler Towels',
       imageUrl: '//d1rypb7ac4155m.cloudfront.net/res/nogizaka46/xhd7-8-2021-12-24-03-54-56/61c5449057e80'
     },
     {
