@@ -5,8 +5,9 @@
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px;
-  font-size: 20px;
-  background-color: #c43bc9;
+  margin-bottom: 20px;
+  font-size: 18px;
+  background-color: #7f1083;
   color: white;
   text-transform: uppercase;
   font-family: 'Saira Condensed';
@@ -18,8 +19,8 @@
 
   &:hover {
     background-color: white;
-    color: #c43bc9;
-    border: 1px solid #c43bc9;
+    color: #7f1083;
+    border: 1px solid #7f1083;
   }
 
   &.google-sign-in {
@@ -34,11 +35,11 @@
 
   &.inverted {
     background-color: white;
-    color: #c43bc9;
-    border: 1px solid #c43bc9;
+    color: #7f1083;
+    border: 1px solid #7f1083;
 
     &:hover {
-      background-color: #c43bc9;
+      background-color: #7f1083;
       color: white;
       border: none;
     }

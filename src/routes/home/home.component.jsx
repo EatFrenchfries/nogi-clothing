@@ -1,4 +1,4 @@
-import Directory from "../../directory/directory.component"
+import Directory from '../../components/directory/directory.component'
 
 const Home = () => {
   const categories = [
@@ -19,7 +19,7 @@ const Home = () => {
     },
     {
       id: 4,
-      title: 'Muffler Towels',
+      title: 'Towels',
       imageUrl: '//d1rypb7ac4155m.cloudfront.net/res/nogizaka46/xhd7-8-2021-12-24-03-54-56/61c5449057e80'
     },
     {
