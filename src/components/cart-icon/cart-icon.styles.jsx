@@ -1,4 +1,6 @@
-.cart-icon-container {
+import styled from 'styled-components'
+
+export const CartIconContainer = styled.div`
   width: 45px;
   height: 45px;
   position: relative;
@@ -18,4 +20,4 @@
     bottom: 8px;
     color: #7f1083;
   }
-}
+`

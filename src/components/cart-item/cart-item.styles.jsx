@@ -1,11 +1,15 @@
-.cart-item-container {
+import styled from 'styled-components'
+
+export const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
-  height: 80px;
+  height: 120px;
   margin-bottom: 15px;
 
   img {
     width: 30%;
+    height: 80px;
+    padding-top: 15px;
   }
 
   .item-details {
@@ -20,4 +24,4 @@
       font-size: 16px;
     }
   }
-}
+`

@@ -9,7 +9,7 @@ import { CartContext } from '../../contexts/cart.context'
 import CartIcon from '../../components/cart-icon/cart-icon.component'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
 
-import './navigation.styles.scss'
+import { NavigationContainer } from './navigation.styles.jsx'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext)
@@ -18,7 +18,7 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className="navigation">
+      <NavigationContainer>
         <Link className="logo-container" to="/">
           <NogiLogo className="logo" />
         </Link>
@@ -38,7 +38,7 @@ const Navigation = () => {
           <CartIcon />
         </div>
         {isCartOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   )

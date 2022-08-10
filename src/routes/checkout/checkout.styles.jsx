@@ -1,4 +1,5 @@
-.checkout-container {
+import styled from 'styled-components'
+export const CheckoutContainer = styled.div`
   width: 70%;
   min-width: 355px;
   min-height: 90vh;
@@ -32,4 +33,4 @@
     margin-left: auto;
     font-size: min(4vw, 26px);
   }
-}
+`

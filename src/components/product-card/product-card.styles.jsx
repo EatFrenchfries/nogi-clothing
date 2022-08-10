@@ -1,11 +1,14 @@
-.product-card-container {
-  width: 350px;
+import styled from 'styled-components'
+
+export const ProductCardContainer = styled.div`
+  width: 345px;
   display: flex;
   flex-direction: column;
   height: 370px;
-  margin: 0 10px 40px;
+  margin: 0 5px 40px;
   align-items: center;
   position: relative;
+  font-weight: bold;
 
   img {
     width: 100%;
@@ -47,6 +50,7 @@
 
     .price {
       width: 10%;
+      margin-right: 15px;
     }
   }
-}
+`

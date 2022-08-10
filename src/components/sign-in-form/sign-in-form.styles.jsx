@@ -1,8 +1,9 @@
-.sign-in-container {
+import styled from 'styled-components'
+export const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 355px;
-  margin: 0 20px 40px;
+  width: 335px;
+  margin: 0 10px 40px;
 
   h2 {
     margin: 10px 0;
@@ -12,4 +13,4 @@
     display: flex;
     justify-content: space-between;
   }
-}
+`
