@@ -6,7 +6,7 @@ export const CheckoutItemContainer = styled.div`
   min-height: 100px;
   border-bottom: 2px solid darkgray;
   padding: 15px 0;
-  font-size: min(3vw, 20px);
+  font-size: min(2vw, 24px);
   align-items: center;
 
   .image-container {
@@ -26,7 +26,7 @@ export const CheckoutItemContainer = styled.div`
 
   .quantity {
     display: flex;
-    margin-left: 10px;
+    margin-left: 8px;
 
     .arrow {
       cursor: pointer;

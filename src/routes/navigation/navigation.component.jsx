@@ -3,18 +3,18 @@ import { Outlet, Link } from 'react-router-dom'
 
 import { ReactComponent as NogiLogo } from '../../assets/nogi.svg'
 import { UserContext } from '../../contexts/user.context'
-import { signOutUser } from '../../utils/firebase/firebase.utils'
 import { CartContext } from '../../contexts/cart.context'
+import { signOutUser } from '../../utils/firebase/firebase.utils'
+import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
 
 import CartIcon from '../../components/cart-icon/cart-icon.component'
-import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
 
 import { NavigationContainer } from './navigation.styles.jsx'
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext)
-  // console.log(currentUser)
   const { isCartOpen } = useContext(CartContext)
+  // console.log(currentUser)
 
   return (
     <Fragment>
@@ -37,8 +37,8 @@ const Navigation = () => {
           )}
           <CartIcon />
         </div>
-        {isCartOpen && <CartDropdown />}
       </NavigationContainer>
+      {isCartOpen && <CartDropdown />}
       <Outlet />
     </Fragment>
   )

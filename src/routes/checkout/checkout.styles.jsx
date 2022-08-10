@@ -16,8 +16,8 @@ export const CheckoutContainer = styled.div`
     border-bottom: 2px solid darkgrey;
 
     .header-block {
-      margin-left: 10px;
-      font-size: 1.5vw;
+      margin-left: 12px;
+      font-size: min(2vw, 22px);
       text-transform: capitalize;
       width: 23%;
 
