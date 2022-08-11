@@ -188,7 +188,7 @@ const SHOP_DATA = [
         price: 1850
       },
       {
-        id: 28,
+        id: 29,
         name: '8th Year Biirthday Towel/Members ver.',
         imageUrl: '//d1rypb7ac4155m.cloudfront.net/res/nogizaka46/nRwB-8-2020-12-25-06-41-13/5fe58989bc88f',
         price: 2350

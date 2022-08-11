@@ -1,20 +1,20 @@
-import { Fragment, useContext } from 'react'
+import { Fragment } from 'react'
 import { Outlet, Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { ReactComponent as NogiLogo } from '../../assets/nogi.svg'
-import { UserContext } from '../../contexts/user.context'
-import { CartContext } from '../../contexts/cart.context'
 import { signOutUser } from '../../utils/firebase/firebase.utils'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
-
 import CartIcon from '../../components/cart-icon/cart-icon.component'
+import { selectCurrentUser } from '../../store/user/user-selector'
+import { selectIsCartOpen } from '../../store/cart/cart-selector'
 
 import { NavigationContainer } from './navigation.styles.jsx'
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext)
-  const { isCartOpen } = useContext(CartContext)
-  // console.log(currentUser)
+  const currentUser = useSelector(selectCurrentUser)
+
+  const isCartOpen = useSelector(selectIsCartOpen)
 
   return (
     <Fragment>

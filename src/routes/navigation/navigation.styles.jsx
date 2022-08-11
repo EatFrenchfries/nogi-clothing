@@ -27,7 +27,7 @@ export const NavigationContainer = styled.div`
     justify-content: flex-end;
 
     .nav-link {
-      font-size: min(3vw, 20px);
+      font-size: min(3vw, 22px);
       margin: 0.8vw 1vw;
       cursor: pointer;
     }
