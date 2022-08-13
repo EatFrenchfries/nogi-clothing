@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 
-import { clearItemFromCart, addItemToCart, removeItemFromCart } from '../../store/cart/cart-action'
+import { clearItemFromCart, addItemToCart, removeItemFromCart, updateItemFromCart } from '../../store/cart/cart-action'
 import { selectCartItems } from '../../store/cart/cart-selector.js'
 
 import { CheckoutItemContainer } from './checkout-item.styles.jsx'
@@ -14,6 +14,15 @@ const CheckoutItem = ({ cartItem }) => {
   const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem))
   const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem))
 
+  const updateItemHandler = e => {
+    cartItem.quantity = Math.trunc(+e.target.value)
+    dispatch(updateItemFromCart(cartItems, cartItem))
+  }
+
+  const keyUpHandler = e => {
+    e.target.value = e.target.value.replace(/\D/g, '')
+  }
+
   return (
     <CheckoutItemContainer>
       <div className="image-container">
@@ -24,7 +33,7 @@ const CheckoutItem = ({ cartItem }) => {
         <div className="arrow" onClick={removeItemHandler}>
           &#10094;
         </div>
-        <span className="value">{quantity}</span>
+        <input type="number" className="value" value={quantity} onKeyUp={keyUpHandler} onChange={updateItemHandler} />
         <div className="arrow" onClick={addItemHandler}>
           &#10095;
         </div>

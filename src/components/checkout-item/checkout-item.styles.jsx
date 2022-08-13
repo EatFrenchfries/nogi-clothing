@@ -26,14 +26,24 @@ export const CheckoutItemContainer = styled.div`
 
   .quantity {
     display: flex;
-    margin-left: 8px;
+    margin-left: 6px;
 
     .arrow {
       cursor: pointer;
     }
 
     .value {
-      margin: 0 10px;
+      -moz-appearance: textfield;
+      width: min(6vw, 40px);
+      font-size: min(2vw, 16px);
+      text-align: center;
+      margin: 0 min(1.5vw, 10px);
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
   }
 

@@ -9,6 +9,12 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }]
 }
 
+const updateCartItem = (cartItems, productToUpdate) => {
+  const existingCartItem = cartItems.find(cartItem => cartItem.id === productToUpdate.id)
+  if (existingCartItem.quantity < 1 || existingCartItem.quantity === 0) productToUpdate.quantity = 1
+  return cartItems.map(cartItem => (cartItem.id === productToUpdate.id ? { ...cartItem, quantity: productToUpdate.quantity } : cartItem))
+}
+
 const removeCartItem = (cartItems, cartItemToRemove) => {
   const existingCartItem = cartItems.find(cartItem => cartItem.id === cartItemToRemove.id)
 
@@ -37,5 +43,10 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
 
 export const clearItemFromCart = (cartItems, cartItemToClear) => {
   const newCartItems = clearCartItem(cartItems, cartItemToClear)
+  return { type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: newCartItems }
+}
+
+export const updateItemFromCart = (cartItems, cartItemToUpdate) => {
+  const newCartItems = updateCartItem(cartItems, cartItemToUpdate)
   return { type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: newCartItems }
 }

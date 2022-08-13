@@ -1,13 +1,13 @@
 import { Fragment } from 'react'
 import { Outlet, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { ReactComponent as NogiLogo } from '../../assets/nogi.svg'
-import { signOutUser } from '../../utils/firebase/firebase.utils'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
 import CartIcon from '../../components/cart-icon/cart-icon.component'
 import { selectCurrentUser } from '../../store/user/user-selector'
 import { selectIsCartOpen } from '../../store/cart/cart-selector'
+import { signOutStart } from '../../store/user/user-atcion'
 
 import { NavigationContainer } from './navigation.styles.jsx'
 
@@ -15,6 +15,9 @@ const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser)
 
   const isCartOpen = useSelector(selectIsCartOpen)
+
+  const dispatch = useDispatch()
+  const signOutUser = () => dispatch(signOutStart())
 
   return (
     <Fragment>
