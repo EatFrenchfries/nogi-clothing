@@ -34,7 +34,7 @@ const Checkout = () => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem}></CheckoutItem>
       ))}
       <div className="total">TOTAL : ¥{formatter.format(cartTotal)}</div>
-      <PaymentForm />
+      {cartTotal > 0 ? <PaymentForm /> : null}
     </CheckoutContainer>
   )
 }
