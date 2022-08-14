@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux'
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
 import { selectCartItems, selectCartTotal } from '../../store/cart/cart-selector'
+import { formatter } from '../../utils/format-price/format-price'
+import PaymentForm from '../../components/payment-form/payment-form.component'
 
 import { CheckoutContainer } from './checkout.styles.jsx'
 
@@ -31,7 +33,8 @@ const Checkout = () => {
       {cartItems.map(cartItem => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem}></CheckoutItem>
       ))}
-      <div className="total">TOTAL : ¥{cartTotal}</div>
+      <div className="total">TOTAL : ¥{formatter.format(cartTotal)}</div>
+      <PaymentForm />
     </CheckoutContainer>
   )
 }

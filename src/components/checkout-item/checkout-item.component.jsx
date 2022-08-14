@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { clearItemFromCart, addItemToCart, removeItemFromCart, updateItemFromCart } from '../../store/cart/cart-action'
 import { selectCartItems } from '../../store/cart/cart-selector.js'
+import { formatter } from '../../utils/format-price/format-price'
 
 import { CheckoutItemContainer } from './checkout-item.styles.jsx'
 
@@ -38,7 +39,7 @@ const CheckoutItem = ({ cartItem }) => {
           &#10095;
         </div>
       </span>
-      <span className="price">{price}</span>
+      <span className="price">{formatter.format(price)}</span>
       <div className="remove-button" onClick={clearItemHandler}>
         &#10005;
       </div>
