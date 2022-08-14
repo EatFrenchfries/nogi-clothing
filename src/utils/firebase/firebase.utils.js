@@ -25,6 +25,26 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 
 export const db = getFirestore()
 
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(db, collectionKey)
+  const batch = writeBatch(db)
+
+  objectsToAdd.forEach(object => {
+    const docRef = doc(collectionRef, object.title.toLowerCase())
+    batch.set(docRef, object)
+  })
+
+  await batch.commit()
+}
+
+export const getCategoriesAndDocument = async () => {
+  const collectionRef = collection(db, 'categories')
+  const q = query(collectionRef)
+
+  const querySnapshot = await getDocs(q)
+  return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
+}
+
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
   if (!userAuth) return
   const userDocRef = doc(db, 'user', userAuth.uid)
@@ -62,32 +82,12 @@ export const signOutUser = async () => await signOut(auth)
 
 export const onAuthStateChangedListener = callback => onAuthStateChanged(auth, callback)
 
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-  const collectionRef = collection(db, collectionKey)
-  const batch = writeBatch(db)
-
-  objectsToAdd.forEach(object => {
-    const docRef = doc(collectionRef, object.title.toLowerCase())
-    batch.set(docRef, object)
-  })
-
-  await batch.commit()
-}
-
-export const getCategoriesAndDocument = async () => {
-  const collectionRef = collection(db, 'categories')
-  const q = query(collectionRef)
-
-  const querySnapshot = await getDocs(q)
-  return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
-}
-
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(
       auth,
       userAuth => {
-        unsubscribe(auth)
+        unsubscribe()
         resolve(userAuth)
       },
       reject
