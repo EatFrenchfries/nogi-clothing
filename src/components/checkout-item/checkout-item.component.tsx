@@ -1,4 +1,4 @@
-import { FC,ChangeEvent,KeyboardEvent } from 'react'
+import { FC,ChangeEvent,KeyboardEvent, memo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { clearItemFromCart, addItemToCart, removeItemFromCart, updateItemFromCart } from '../../store/cart/cart-action'
@@ -12,7 +12,7 @@ type CheckoutItemProps = {
   cartItem:CartItem
 }
 
-const CheckoutItem:FC<CheckoutItemProps> = ({ cartItem }) => {
+const CheckoutItem:FC<CheckoutItemProps> = memo(({ cartItem }) => {
   const dispatch = useDispatch()
   const cartItems = useSelector(selectCartItems)
   const { name, imageUrl, price, quantity } = cartItem
@@ -51,6 +51,6 @@ const CheckoutItem:FC<CheckoutItemProps> = ({ cartItem }) => {
       </div>
     </CheckoutItemContainer>
   )
-}
+})
 
 export default CheckoutItem

@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import CategoryPreview from '../../components/category-preview/category-preview.component'
@@ -8,6 +8,10 @@ import Spinner from '../../components/spinner/spinner.component'
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap)
   const isLoading = useSelector(selectIsLoading)
+
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  })
 
   return (
     <Fragment>

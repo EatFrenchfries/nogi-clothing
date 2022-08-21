@@ -26,8 +26,12 @@ export const NavigationContainer = styled.div`
     align-items: center;
     justify-content: flex-end;
 
+    @media screen and (max-width:800px) {
+      width:80%;
+    }
+
     .nav-link {
-      font-size: min(3vw, 22px);
+      font-size: min(4vw, 22px);
       margin: 0.8vw 1vw;
       cursor: pointer;
     }

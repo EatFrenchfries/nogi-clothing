@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CategoryContainer = styled.div`
+export const SearchContainer = styled.div`
   max-width: 1200px;
   min-width: 355px;
   margin: 0 auto;

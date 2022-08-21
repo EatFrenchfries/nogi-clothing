@@ -19,6 +19,7 @@ const Category = () => {
   const [products, setProducts] = useState(categoriesMap[category])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     setProducts(categoriesMap[category])
   }, [category, categoriesMap])
 

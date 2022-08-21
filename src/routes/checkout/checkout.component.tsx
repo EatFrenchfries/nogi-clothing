@@ -6,10 +6,15 @@ import { formatter } from '../../utils/format-price/format-price'
 import PaymentForm from '../../components/payment-form/payment-form.component'
 
 import { CheckoutContainer } from './checkout.styles'
+import { useEffect } from 'react'
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems)
   const cartTotal = useSelector(selectCartTotal)
+
+  useEffect(()=> {
+    window.scrollTo(0, 0)
+  })
 
   return (
     <CheckoutContainer>

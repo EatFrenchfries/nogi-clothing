@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { ReactComponent as NogiLogo } from '../../assets/nogi.svg'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
 import CartIcon from '../../components/cart-icon/cart-icon.component'
+import Search from '../../components/search/search.component'
 import { selectCurrentUser } from '../../store/user/user-selector'
 import { selectIsCartOpen } from '../../store/cart/cart-selector'
 import { signOutStart } from '../../store/user/user-atcion'
@@ -31,6 +32,7 @@ const Navigation = () => {
           <NogiLogo className="logo" />
         </Link>
         <div className="nav-links-container">
+          <Search/>
           <Link className="nav-link" to="/shop">
             SHOP
           </Link>

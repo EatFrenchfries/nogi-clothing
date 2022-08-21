@@ -19,3 +19,4 @@ export const selectCategoriesMap = createSelector(
 )
 
 export const selectIsLoading = createSelector([selectCategoryReducer], categoriesSlice => categoriesSlice.isLoading)
+export const selectSearch = createSelector([selectCategoryReducer], categoriesSlice => categoriesSlice.search)
