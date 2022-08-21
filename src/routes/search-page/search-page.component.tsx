@@ -31,7 +31,7 @@ const SearchPage = () => {
     <Fragment>
       {isLoading ? (
         <Spinner />
-      ) : results.length>0 ? <Title>{results.length} search results for "{search}"</Title>: <Title>No items match your search.</Title>
+      ) : results.length>0 ? <Title>{results.length} search {results.length === 1 ? "result" :"results"} for "{search}"</Title>: <Title>No items match your search.</Title>
       }
       <SearchContainer>
       {results.length>0 ? 

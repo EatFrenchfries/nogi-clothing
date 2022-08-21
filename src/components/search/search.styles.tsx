@@ -19,11 +19,15 @@ export const MyPaper = styled(Paper)(({theme}) => `
 export const MyInputBase = styled(InputBase)(({theme}) => `
   padding:0 2px 0 4px;
 
+  ${theme.breakpoints.down('600')} {
+    padding:0 2px 0 2px;
+  }
+
   input {
     font-size:20px;
 
     ${theme.breakpoints.down('600')} {
-      font-size:14px;
+      font-size:12px;
     }
   }
 `)
