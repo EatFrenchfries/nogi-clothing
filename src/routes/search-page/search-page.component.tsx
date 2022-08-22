@@ -22,7 +22,7 @@ const SearchPage = () => {
       const filter = products.filter((product) => {
         return product.name.toLocaleLowerCase().includes(search)})
       
-        filteritems.push(...filter)})
+      return filteritems.push(...filter)})
     setResults(filteritems)
     
   },[search])

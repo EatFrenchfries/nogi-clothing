@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from './utils/stripe/stripe.utils'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
 import App from './App'
 import { store, persistor } from './store/store'
@@ -25,3 +26,4 @@ root.render(
     </Provider>
   </React.StrictMode>
 )
+serviceWorkerRegistration.register()
