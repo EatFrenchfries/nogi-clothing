@@ -5,4 +5,3 @@ import { RootState } from '../store'
 export const selectUserReducer = (state: RootState): UserState => state.user
 
 export const selectCurrentUser = createSelector(selectUserReducer, user => user.currentUser)
-export const selectIsLogged = createSelector(selectUserReducer, user => user.isLogged)

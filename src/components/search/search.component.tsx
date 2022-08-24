@@ -18,6 +18,7 @@ const Search = () => {
 
   useEffect(()=> {
     dispatch(fetchCategoriesStart())
+    window.scrollTo(0, 0)
   },[])
 
   const changeHandler = (event:ChangeEvent<HTMLInputElement>)=> {

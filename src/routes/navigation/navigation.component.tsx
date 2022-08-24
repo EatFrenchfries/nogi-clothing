@@ -18,7 +18,10 @@ const Navigation = () => {
   const isCartOpen = useSelector(selectIsCartOpen)
 
   const dispatch = useDispatch()
-  const signOutUser = () => dispatch(signOutStart())
+  const signOutUser = () => 
+    dispatch(signOutStart())
+    
+  
 
   window.onunload = () => {
     dispatch(signOutStart())

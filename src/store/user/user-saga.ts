@@ -5,6 +5,9 @@ import { signInSuccess, signInFailed, signUpFailed, signUpSuccess, signOutFailed
 import { User } from 'firebase/auth'
 import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword, createAuthUserWithEmailAndPassword, signOutUser, AdditionalInformation } from '../../utils/firebase/firebase.utils'
 
+import { createBrowserHistory } from 'history'
+const history = createBrowserHistory()
+
 export function* getSnapshotFromUserAuth(userAuth: User, additionalDetails?: AdditionalInformation) {
   try {
     const userSnapshot = yield* call(createUserDocumentFromAuth, userAuth, additionalDetails)
@@ -20,6 +23,7 @@ export function* signInWithGoogle() {
   try {
     const { user } = yield* call(signInWithGooglePopup)
     yield* call(getSnapshotFromUserAuth, user)
+    yield* call(history.back)
   } catch (error) {
     yield* put(signInFailed(error as Error))
   }
@@ -31,6 +35,7 @@ export function* signWithEmail({ payload: { email, password } }: EmailSignInStar
     if (userCredential) {
       const { user } = userCredential
       yield* call(getSnapshotFromUserAuth, user)
+      yield* call(history.back)
     }
   } catch (error) {
     yield* put(signInFailed(error as Error))
