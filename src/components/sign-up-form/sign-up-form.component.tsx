@@ -1,6 +1,5 @@
 import { useState,FormEvent,ChangeEvent } from 'react'
 import { useDispatch } from 'react-redux'
-import { AuthError, AuthErrorCodes } from 'firebase/auth'
 
 import FormInput from '../form-input/form-input.component'
 import Button from '../button/button.component'
@@ -28,14 +27,12 @@ const SignUpForm = () => {
     event.preventDefault()
     if (password !== confirmPassword) {
       alert('Password does not match.')
+      return 
     }
     try {
       dispatch(signUpStart(email, password, displayName))
       resetFormFields()
     } catch (error) {
-      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
-        alert('Cannot create user, email already in use.')
-      }
       console.log('User creation encountered an error.', error)
     }
   }

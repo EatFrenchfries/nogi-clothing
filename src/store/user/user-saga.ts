@@ -1,8 +1,8 @@
 import { takeLatest, all, call, put } from 'typed-redux-saga/macro'
 
 import USER_ACTION_TYPES from './user-types'
+import { User, AuthError, AuthErrorCodes } from 'firebase/auth'
 import { signInSuccess, signInFailed, signUpFailed, signUpSuccess, signOutFailed, signOutSuccess, EmailSignInStart, SignUpStart, SignUpSuccess } from './user-atcion'
-import { User } from 'firebase/auth'
 import { getCurrentUser, createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword, createAuthUserWithEmailAndPassword, signOutUser, AdditionalInformation } from '../../utils/firebase/firebase.utils'
 
 import { createBrowserHistory } from 'history'
@@ -38,6 +38,16 @@ export function* signWithEmail({ payload: { email, password } }: EmailSignInStar
       yield* call(history.back)
     }
   } catch (error) {
+    switch ((error as AuthError).code) {
+      case AuthErrorCodes.INVALID_PASSWORD:
+        alert('Incorrect password for email.')
+        break
+      case AuthErrorCodes.USER_DELETED:
+        alert('No user associated with this email.')
+        break
+      default:
+        console.log(error)
+    }
     yield* put(signInFailed(error as Error))
   }
 }
@@ -50,12 +60,17 @@ export function* signUp({ payload: { email, password, displayName } }: SignUpSta
       yield* put(signUpSuccess(user, { displayName }))
     }
   } catch (error) {
+    if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
+      alert('Cannot create user, email already in use.')
+    }
+    console.log('User creation encountered an error.', error)
     yield* put(signUpFailed(error as Error))
   }
 }
 
 export function* signInAfterSignUp({ payload: { user, additionalDetails } }: SignUpSuccess) {
   yield* call(getSnapshotFromUserAuth, user, additionalDetails)
+  yield* call(history.back)
 }
 
 export function* signOut() {
