@@ -3,17 +3,25 @@ import { Swiper } from "swiper/react"
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  max-width:800px;
-  margin:auto;
+  max-width:900px;
+  margin:auto ;
+
+  @media screen and (max-width:400px) {
+    margin:-15px auto 0;
+  }
 `
 
 export const MySwiper = styled(Swiper)`
 .swiper {
   width: 100%;
-  height: 430px;
+  height: 500px;
 
   @media screen and (max-width:800px) {
-    height: 300px;
+    height: 360px;
+  }
+
+  @media screen and (max-width:500px) {
+    height: 230px;
   }
 }
 
@@ -21,7 +29,7 @@ export const MySwiper = styled(Swiper)`
   text-align: center;
   font-size: 18px;
   background: #fff;
-  height:430px;
+  height:500px;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -38,15 +46,21 @@ export const MySwiper = styled(Swiper)`
   align-items: center;
 
   @media screen and (max-width:800px) {
-    height: 300px;
+    height: 360px;
+  }
+
+  @media screen and (max-width:500px) {
+    height: 230px;
   }
 }
 
-.swiper-slide img {
+.swiper-slide .img {
   display: block;
   width: 90%;
   height: 90%;
-  object-fit: cover;
+  background-position:center;
+  background-size: contain;
+  background-repeat: no-repeat;
   margin-bottom:10px;
 }
 
@@ -89,8 +103,12 @@ span.swiper-pagination-bullet {
 .swiper-horizontal>.swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: -9px;
+  bottom: -5px;
   margin-bottom:8px;
+
+  @media screen and (max-width:500px) {
+    bottom: -10px;
+  }
 }
 
 `

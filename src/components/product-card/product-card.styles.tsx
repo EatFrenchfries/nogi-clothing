@@ -29,6 +29,7 @@ export const ProductCardContainer = styled.div`
       opacity:0.9;
       min-width:unset;
       padding: 0 10px;
+      top: 210px;
     }
   }
 

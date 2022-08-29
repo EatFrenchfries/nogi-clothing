@@ -13,6 +13,7 @@ const Authentication = lazy(() => import('./routes/authentication/authentication
 const Shop = lazy(() => import('./routes/shop/shop.component'))
 const Checkout = lazy(() => import('./routes/checkout/checkout.component'))
 const SearchPage = lazy(() => import('./routes/search-page/search-page.component'))
+const Events = lazy(() => import('./routes/events/events.component'))
 
 const App = () => {
   const dispatch = useDispatch()
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="auth" element={<Authentication />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="search" element={<SearchPage />} />
+            <Route path="event/:goods" element={<Events />} />
           </Route>
         </Routes>
       </Suspense>
