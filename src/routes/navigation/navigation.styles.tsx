@@ -6,6 +6,10 @@ export const NavigationContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 25px;
 
+  @media screen and (max-width:480px) {
+    margin-bottom: 5px;
+  }
+
   .logo-container {
     max-width: 230px;
     max-height: 90px;
