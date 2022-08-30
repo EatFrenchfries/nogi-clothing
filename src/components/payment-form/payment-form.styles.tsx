@@ -11,7 +11,7 @@ export const PaymentFormContainer = styled.div`
 
 export const FormContainer = styled.form`
   height: 100px;
-  min-width: 355px;
+  min-width: 335px;
 
   h2 {
     font-size: min(4vw, 26px);
