@@ -17,7 +17,6 @@ const Events = lazy(() => import('./routes/events/events.component'))
 
 const App = () => {
   const dispatch = useDispatch()
-  console.log(1)
 
   useEffect(() => {
     dispatch(checkUserSession())
