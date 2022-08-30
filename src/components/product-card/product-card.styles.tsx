@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ProductCardContainer = styled.div`
-  width: 335px;
+  width: 355px;
   display: flex;
   flex-direction: column;
   height: 370px;
@@ -9,6 +9,7 @@ export const ProductCardContainer = styled.div`
   align-items: center;
   position: relative;
   font-weight: bold;
+
 
   img {
     width: 100%;

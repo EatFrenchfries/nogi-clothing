@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const SearchContainer = styled.div`
   max-width: 1200px;
-  min-width: 355px;
-  margin: 0 auto;
+  min-width: 335px;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
