@@ -25,7 +25,7 @@ export const CategoryPreviewContainer = styled.div`
   .preview {
     max-width: 1200px;
     min-width:335px;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
