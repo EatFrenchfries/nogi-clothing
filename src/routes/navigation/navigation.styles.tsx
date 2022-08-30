@@ -35,9 +35,10 @@ export const NavigationContainer = styled.div`
     }
 
     .nav-link {
-      font-size: min(4vw, 22px);
+      font-size: min(3.5vw, 22px);
       margin: 0.8vw 1vw;
       cursor: pointer;
+      text-align:center;
     }
   }
 `
