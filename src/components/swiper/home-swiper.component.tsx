@@ -73,18 +73,13 @@ const HomeSwiper = () => {
                 playerVars: {
                   autoplay: 0,  
                     enablejsapi: 1,
-                    host: `${window.location.protocol}//www.youtube.com`,
-                    origin: window.location.href
+                    host: `${window.parent.location.protocol}//www.youtube.com`,
+                    origin: window.parent.location.origin
                 }
-              },
-              file: {
-                attributes: {
-                  crossOrigin: "true",
-                },
-              }
+              }  
             }}
             />
-            </SwiperSlide>
+            </SwiperSlide>        
       </MySwiper>
     </Container>
   );

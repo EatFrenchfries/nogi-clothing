@@ -40,7 +40,9 @@ const ProductCard:FC<ProductCardProps> = ({ product }) => {
 
   return (
     <ProductCardContainer>
-      <img src={imageUrl} alt={`${name}`} />
+      <div className="img">
+        <img src={imageUrl} alt={`${name}`} />
+      </div>
       <div className="footer">
         <span className="name">{name}</span>
         <span className="price">¥{formatter.format(price)}</span>

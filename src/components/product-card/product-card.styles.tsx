@@ -5,7 +5,7 @@ export const ProductCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 370px;
-  margin: 0 5px 40px;
+  margin: 0 5px 45px;
   align-items: center;
   position: relative;
   font-weight: bold;
@@ -23,11 +23,19 @@ export const ProductCardContainer = styled.div`
     line-height:40px;
   }
 
-  img {
+  .img {
     width: 100%;
     height: 95%;
-    object-fit: cover;
     margin-bottom: 5px;
+
+    @media screen and (max-width:385px) {
+      margin-bottom: -10px;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
   }
 
   button {
