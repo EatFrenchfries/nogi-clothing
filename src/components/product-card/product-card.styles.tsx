@@ -10,6 +10,18 @@ export const ProductCardContainer = styled.div`
   position: relative;
   font-weight: bold;
 
+  .message {
+    position:absolute;
+    top:5px;
+    width: 100%;
+    height: 40px;
+    background-color:rgba(106, 90, 205,0.7);
+    color:white;
+    border-radius:20px;
+    font-size:18px;
+    text-align:center;
+    line-height:40px;
+  }
 
   img {
     width: 100%;

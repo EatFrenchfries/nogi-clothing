@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component'
@@ -17,8 +17,26 @@ const ProductCard:FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch()
   const cartItems = useSelector(selectCartItems)
   const { name, imageUrl, price } = product
+  const [isCartAdd, setIsCartAdd] = useState(false)
 
-  const addProductHandler = () => dispatch(addItemToCart(cartItems, product))
+  useEffect(()=>{
+    if(isCartAdd) {
+      const timer = setTimeout(()=>{
+        setIsCartAdd(false)
+      },1000)
+
+      return ()=>{
+        clearTimeout(timer)
+      }
+    }
+
+
+  },[isCartAdd])
+
+  const addProductHandler = () => {
+    dispatch(addItemToCart(cartItems, product))
+    setIsCartAdd(true)
+  }
 
   return (
     <ProductCardContainer>
@@ -27,6 +45,7 @@ const ProductCard:FC<ProductCardProps> = ({ product }) => {
         <span className="name">{name}</span>
         <span className="price">¥{formatter.format(price)}</span>
       </div>
+      {isCartAdd && <div className="message" onClick={()=>setIsCartAdd(false)}>Item is added to cart successfully.</div>}
       <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addProductHandler}>
         Add to cart
       </Button>
